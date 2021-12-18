@@ -1,19 +1,26 @@
 <div class="card">
     <div class="card-body">
         <h5 class="titulo mb-3">Crear registro</h5>
-        <form>
+        <form [formGroup]="form" (ngSubmit)="crearTarjeta()">
             <div class="input-group  mb-3">
                 <span class="input-group-text">
                     <i class="fas fa-map-marker-alt"></i>
                 </span>
-                <input type="text" class="form-control" placeholder="Ubicacion">
+                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Ubicacion.">
+                <datalist id="datalistOptions">
+                    <option value="San Francisco">
+                    <option value="New York">
+                    <option value="Seattle">
+                    <option value="Los Angeles">
+                    <option value="Chicago">
+                </datalist>
             </div>
             <div class="input-group  mb-3">
                 <span class="input-group-text">
                     <i class="fas fa-id-card"></i>
 
                 </span>
-                <input type="number" class="form-control" placeholder="Cedula">
+                <input type="text" minlength="10" maxlength="10" formControlName="cedula" class="form-control"  placeholder="Cedula">
             </div>
             <div class="row">
                 <div class="col-lg-6">
@@ -21,7 +28,7 @@
                         <span class="input-group-text">
                             <i class="fas fa-user-circle"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Nombres">
+                        <input type="text" class="form-control" formControlName="nombres" placeholder="Nombres">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -30,7 +37,7 @@
 
                             <i class="fas fa-user-circle"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Apellidos">
+                        <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos">
                     </div>
                 </div>
             </div>
@@ -39,14 +46,14 @@
                 <span class="input-group-text">
                     <i class="far fa-sort-numeric-down-alt"></i>
                 </span>
-                <input type="number" class="form-control" placeholder="Ingrese la cantidad de venta ">
+                <input type="number" class="form-control"  min="1" formControlName="cantidad"  placeholder="Ingrese la cantidad de venta ">
             </div>
             <div class="d-grid gap-2">
 
-                <button type="button" class="btn btn-primary btn-lg">
+                <button type="submit" class="btn btn-primary btn-lg">
                     <i class="fas fa-database"></i> &nbsp;Registrar</button>
             </div>
-
+           
         </form>
 
     </div>
