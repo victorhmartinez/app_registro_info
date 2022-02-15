@@ -1,0 +1,36 @@
+<div class="container mt-3">
+
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-1">
+      <div *ngFor="let producto of listProductos" class="col mb-2">
+        <div>
+          
+        </div>
+        <div class="card ">
+          <h5 class="card-title text-center">{{producto.nombre}}</h5>
+          <img [src]="producto.urlImagen" alt="" height="250px" width="300px" class="card-img-top">
+          <div class="card-body text-center">
+           <!-- <a [routerLink]="['/ver-producto',producto._id] "  class="btn btn-primary">Ver Receta</a>-->
+  
+          </div>
+        <!--
+          <div class="card-footer text-muted text-center">
+  
+            <div class="row">
+              <div class="col">
+  
+                <i [routerLink]="['/editar-producto',producto._id]" class="fas fa-edit text-success"></i>
+  
+              </div>
+              <div class="col">
+  
+                <i (click)="eliminarProducto(producto._id)" class="fas fa-trash text-danger"></i>
+              </div>
+  
+            </div>
+  -->
+          </div>
+        </div>
+  
+      </div>
+    </div>
+
