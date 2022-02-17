@@ -4,49 +4,52 @@
         <form [formGroup]="registroForm" (ngSubmit)="crearRegistro()">
             <div class="input-group input-group-lg mb-3">
                 <span class="input-group-text">
-                    <i class="fas fa-map-marker-alt"
-                    [class.green-icon]="this.registroForm.get('ubicacion')?.valid"
-                    [class.red-icon]="this.registroForm.get('ubicacion')?.invalid && this.registroForm.get('ubicacion')?.touched"></i>
+                    <i class="fas fa-map-marker-alt" [class.green-icon]="this.registroForm.get('ubicacion')?.valid"
+                        [class.red-icon]="this.registroForm.get('ubicacion')?.invalid && this.registroForm.get('ubicacion')?.touched"></i>
                 </span>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" formControlName="ubicacion"
-                    placeholder="Ubicacion.">
+                    placeholder="Seleccione una ubicación">
                 <datalist id="datalistOptions">
-                    <option value="San Francisco">
-                    <option value="New York">
-                    <option value="Seattle">
-                    <option value="Los Angeles">
-                    <option value="Chicago">
-                </datalist>    
+                    <ng-container *ngFor="let ubicacion of listUbicacion">
+                        <option value="{{ubicacion.nombreUbicacion}}">
+                    </ng-container>
+
+
+                </datalist>
             </div>
+            <!--Cedula-->
             <div class="input-group input-group-lg mb-3">
                 <span class="input-group-text">
-                    <i class="fas fa-id-card"
-                    [class.green-icon]="this.registroForm.get('cedula')?.valid"
-                    [class.red-icon]="this.registroForm.get('cedula')?.invalid && this.registroForm.get('cedula')?.touched"></i>
+                    <i class="fas fa-id-card" [class.green-icon]="this.registroForm.get('cedula')?.valid"
+                        [class.red-icon]="this.registroForm.get('cedula')?.invalid && this.registroForm.get('cedula')?.touched"></i>
                 </span>
                 <input type="text" minlength="10" maxlength="10" formControlName="cedula"
-                    class="form-control form-control-lg" placeholder="Cedula">           
+                    class="form-control form-control-lg" placeholder="Cedula">
             </div>
+            <!--Validar info-->
+            <div class="d-grid gap-2 mb-2" >
+
+                <button  class="btn btn-info btn-lg">
+                    <i class="fa-solid fa-user-check"></i> &nbsp;Verificar</button>
+            </div>
+
             <div class="row">
                 <div class="col-lg-6">
                     <div class="input-group input-group-lg mb-3">
                         <span class="input-group-text">
-                            <i class="fas fa-user-circle"
-                            [class.green-icon]="this.registroForm.get('nombres')?.valid"
-                            [class.red-icon]="this.registroForm.get('nombres')?.invalid && this.registroForm.get('nombres')?.touched"></i>
+                            <i class="fas fa-user-circle" [class.green-icon]="this.registroForm.get('nombres')?.valid"
+                                [class.red-icon]="this.registroForm.get('nombres')?.invalid && this.registroForm.get('nombres')?.touched"></i>
                         </span>
                         <input type="text" class="form-control form-control-lg" formControlName="nombres"
-                            placeholder="Nombres">               
+                            placeholder="Nombres">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="input-group input-group-lg mb-3">
                         <span class="input-group-text">
 
-                            <i class="fas fa-user-circle"
-                            [class.green-icon]="this.registroForm.get('apellidos')?.valid"
-                            [class.red-icon]="this.registroForm.get('apellidos')?.invalid && this.registroForm.get('apellidos')?.touched"
-                            ></i>
+                            <i class="fas fa-user-circle" [class.green-icon]="this.registroForm.get('apellidos')?.valid"
+                                [class.red-icon]="this.registroForm.get('apellidos')?.invalid && this.registroForm.get('apellidos')?.touched"></i>
                         </span>
                         <input type="text" class="form-control form-control-lg" formControlName="apellidos"
                             placeholder="Apellidos">
@@ -57,12 +60,12 @@
             <div class="input-group input-group-lg mb-3">
                 <span class="input-group-text">
                     <i class="far fa-sort-numeric-down-alt"
-                    [class.green-icon]="this.registroForm.get('cantidad')?.valid"
-                            [class.red-icon]="this.registroForm.get('cantidad')?.invalid && this.registroForm.get('cantidad')?.touched"></i>
+                        [class.green-icon]="this.registroForm.get('cantidad')?.valid"
+                        [class.red-icon]="this.registroForm.get('cantidad')?.invalid && this.registroForm.get('cantidad')?.touched"></i>
                 </span>
                 <input type="number" class="form-control" min="1" formControlName="cantidad"
                     placeholder="Ingrese la cantidad de venta ">
-               
+
             </div>
             <div class="d-grid gap-2">
 
