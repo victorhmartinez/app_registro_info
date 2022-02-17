@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import{ReactiveFormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
+import{HttpClientModule} from '@angular/common/http'
 import { CrearRegistroComponent } from './components/crear-registro/crear-registro.component';
 import { ListarRegistrosComponent } from './components/listar-registros/listar-registros.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -25,7 +26,8 @@ import { ListadorComponent } from './components/listar-registros/listador/listad
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

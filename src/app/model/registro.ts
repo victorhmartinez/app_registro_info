@@ -1,17 +1,17 @@
 export class Registro {
-    id?:string;
+    _id?:string;
     ubicacion:string;
-    nroCedula:string;
-    nombres:string;
-    apellidos:string;
-    cant:number;
-    fecha:Date;
-    constructor(ubicacion:string,nroCedula:string,nombres:string,apellidos:string,cant:number,){
+    nombre:string;
+    apellido:string;
+    registros?:any[]
+   
+    constructor(ubicacion:string,nombres:string,apellidos:string,cant:number,registros:any[]){
         this.ubicacion=ubicacion;
-        this.nroCedula=nroCedula;
-        this.nombres=nombres;
-        this.apellidos=apellidos;
-        this.cant=cant;
-        this.fecha=new Date()
+
+        this.nombre=nombres;
+        this.apellido=apellidos;
+        //this.cant=cant;
+        this.registros=registros
+      
     }
 }
