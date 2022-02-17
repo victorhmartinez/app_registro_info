@@ -13,4 +13,12 @@ export class RegistroService {
   saveRegistro(registro:Registro):Observable<any>{
     return this.http.post(this.URL,registro);
   }
+  getData(_id:String):Observable<any>{
+    console.log(this.URL+"/filter?_id="+_id)
+    return this.http.get(this.URL+"/filter?_id="+_id);
+
+  }
+  editResgister(registro:Registro):Observable<any>{
+    return this.http.put(this.URL+"/update/"+registro._id,registro);
+  }
 }

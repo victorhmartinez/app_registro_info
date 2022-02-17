@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h5 class="titulo mb-3">Crear registro</h5>
-        <form [formGroup]="registroForm" (ngSubmit)="crearRegistro()">
+        <form [formGroup]="registroForm" >
             <div class="input-group input-group-lg mb-3">
                 <span class="input-group-text">
                     <i class="fas fa-map-marker-alt" [class.green-icon]="this.registroForm.get('ubicacion')?.valid"
@@ -27,12 +27,14 @@
                     class="form-control form-control-lg" placeholder="Cedula">
             </div>
             <!--Validar info-->
-            <div class="d-grid gap-2 mb-2" >
+            <div class="d-grid gap-2 mb-2" *ngIf="this.bandera===true" >
 
-                <button  class="btn btn-info btn-lg">
+                <button  class="btn btn-info btn-lg" (click)="obtnerInfoRegistro()">
                     <i class="fa-solid fa-user-check"></i> &nbsp;Verificar</button>
             </div>
+            <ng-container *ngIf="this.bandera===false">
 
+            
             <div class="row">
                 <div class="col-lg-6">
                     <div class="input-group input-group-lg mb-3">
@@ -69,10 +71,10 @@
             </div>
             <div class="d-grid gap-2">
 
-                <button type="submit" class="btn btn-primary btn-lg">
+                <button (click)="crearRegistro()" class="btn btn-primary btn-lg">
                     <i class="fas fa-database"></i> &nbsp;Registrar</button>
             </div>
-
+        </ng-container>
         </form>
 
     </div>

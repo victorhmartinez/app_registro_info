@@ -12,8 +12,11 @@ import { UbicacionService } from 'src/app/services/ubicacion.service';
 })
 export class CrearRegistroComponent implements OnInit {
   registroForm:FormGroup
- 
+  _id:String="";
   registros: any[] ;
+  bandera:boolean=true;
+  isEditar:boolean=false;
+  
   listUbicacion:Ubicacion[]=[];
   constructor( private fb:FormBuilder,
     private _productoService:RegistroService,
@@ -35,8 +38,7 @@ export class CrearRegistroComponent implements OnInit {
     this.obtenerUbicacion()
   }
   crearRegistro(){
-    
-   
+   if(this.registroForm.valid){
     this.registros.push({cantidad:this.registroForm.value.cantidad})
     const REGISTRO:Registro={
       apellido:this.registroForm.value.apellidos,
@@ -45,13 +47,23 @@ export class CrearRegistroComponent implements OnInit {
       ubicacion:this.registroForm.value.ubicacion,
       registros:this.registros
     }
-    
-    console.log("Objeto",REGISTRO)
+    console.log("Objeto",REGISTRO);
+    if(this.isEditar){
+      this._productoService.editResgister(REGISTRO).subscribe(data=>{
+        console.log("Actualizado")
+        this.registroForm.reset();
+      })
+    }else{
+      this._productoService.saveRegistro(REGISTRO).subscribe(data=>{
+        console.log("Hecho esta")
+        this.registroForm.reset();
+      });
+    }
+ 
+    this.bandera=true;
+    this.isEditar=false;
+   }
    
-    this._productoService.saveRegistro(REGISTRO).subscribe(data=>{
-      console.log("Hecho esta")
-      this.registroForm.reset();
-    });
   }
 
   obtenerUbicacion(){
@@ -60,5 +72,30 @@ export class CrearRegistroComponent implements OnInit {
           console.log("Esta es la ubicacion",this.listUbicacion)
         })
     
+  }
+
+  obtnerInfoRegistro(){
+    this._id=this.registroForm.value.cedula;
+    this.bandera=false;
+    this._productoService.getData(this._id).subscribe(data=>{ 
+    if(data.length>0){
+
+      console.log("Hay data");
+      this.registroForm.setValue({
+        ubicacion:data[0].ubicacion,
+        nombres:data[0].nombre,
+        apellidos:data[0].apellido,
+        cedula:data[0]._id,
+        cantidad:""
+      });
+      this.isEditar=true
+    }else{
+     
+    }
+
+    })
+  }
+  editarRegistro(){
+
   }
 }
