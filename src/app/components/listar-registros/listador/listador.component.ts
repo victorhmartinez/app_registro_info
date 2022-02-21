@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistroService } from 'src/app/services/registro.service';
 
 @Component({
   selector: 'app-listador',
@@ -6,37 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listador.component.css']
 })
 export class ListadorComponent implements OnInit {
-  listProductos :any []
-  constructor() { 
-    this.listProductos=[
-      {
-        nombre:"Juan",
-        urlImagen:"https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png",
-      },
-      {
-        nombre:"Juan",
-        urlImagen:"https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png",
-      },
-      {
-        nombre:"Juan",
-        urlImagen:"https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png",
-      },
-      {
-        nombre:"Juan",
-        urlImagen:"https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png",
-      },
-      {
-        nombre:"Juan",
-        urlImagen:"https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png",
-      },
-      {
-        nombre:"Juan",
-        urlImagen:"https://cdn.pixabay.com/photo/2018/08/28/12/41/avatar-3637425_960_720.png",
-      },
-    ]
+  listRegistros :any []=[]
+  constructor(private _registroService:RegistroService) { 
+   
   }
 
   ngOnInit(): void {
+    this.getRegisterPlace()
   }
-
+  getRegisterPlace(){
+    this._registroService.getRegisterPlaces("San Francisco").subscribe(data=>{
+      this.listRegistros=data;
+      console.log(this.listRegistros)
+    })
+  }
 }

@@ -95,7 +95,5 @@ export class CrearRegistroComponent implements OnInit {
 
     })
   }
-  editarRegistro(){
-
-  }
+ 
 }

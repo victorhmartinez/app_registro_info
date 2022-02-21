@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UbicacionService {
-  URL="http://localhost:3000/api/ubicacion";
+  URL="https://registro-data-info.herokuapp.com/api/ubicacion";
   constructor(private http:HttpClient) { 
   }
   getUbicacion():Observable<any>{

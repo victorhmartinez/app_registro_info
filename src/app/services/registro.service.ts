@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegistroService {
-  URL="http://localhost:3000/api/registro";
+  URL="https://registro-data-info.herokuapp.com/api/registro";
   constructor(private http:HttpClient) { 
 
   }
@@ -20,5 +20,8 @@ export class RegistroService {
   }
   editResgister(registro:Registro):Observable<any>{
     return this.http.put(this.URL+"/update/"+registro._id,registro);
+  }
+  getRegisterPlaces(ubicacion:string):Observable<any>{
+    return this.http.get(this.URL+"/filter?ubicacion="+ubicacion);
   }
 }
