@@ -10,10 +10,13 @@
            <h5 class="card-title text-center">{{registro._id}}</h5>
            <p> <strong>Nombres: </strong> {{registro.nombre}} {{registro.apellido}}</p>
            <p> <strong>Ubicación: </strong>{{registro.ubicacion}}</p>
-         <ng-container *ngFor=" let regis of registro.registros">
-           <p><strong>Cantidad:</strong> {{regis.cantidad}} </p> 
+         <ng-container *ngFor=" let regis of registro.registros; last as last;">
+          <ng-container *ngIf="last">
+
+        
+          <p ><strong>Cantidad:</strong> {{regis.cantidad}} </p> 
            <p>  <strong>Fecha Compra:</strong> {{regis.fechaCompra}}</p>
-         
+          </ng-container>
          </ng-container>
           </div>
           <div class="card-footer text-muted text-center">
