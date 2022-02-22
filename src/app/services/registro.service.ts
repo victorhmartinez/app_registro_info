@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Registro } from '../model/registro';
-import { Observable } from 'rxjs';
+import { Observable,Subject } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment.prod';
 export class RegistroService {
 
   private URL:string;
+  private terminoBusqueda$= new Subject <string>()
   constructor(private http:HttpClient) { 
     this.URL=environment.urlAPI+"registro";
   }
@@ -26,5 +27,12 @@ export class RegistroService {
   }
   getRegisterPlaces(ubicacion:string):Observable<any>{
     return this.http.get(this.URL+"/filter?ubicacion="+ubicacion);
+  }
+
+  enviarTerminoBusqueda(termino:string){
+    this.terminoBusqueda$.next(termino);
+  }
+  getTerminoBusqueda():Observable<string>{
+    return this.terminoBusqueda$.asObservable();
   }
 }

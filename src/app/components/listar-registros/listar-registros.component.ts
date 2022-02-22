@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { RegistroService } from 'src/app/services/registro.service';
 
 @Component({
   selector: 'app-listar-registros',
@@ -7,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarRegistrosComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
   }
