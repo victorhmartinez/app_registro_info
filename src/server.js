@@ -8,8 +8,8 @@ const app = express();
 app.use(express.static('dist/registro-clientes'));
 
 app.get('/*', (req, res) =>{
-    const fullPath = path.join( '../../dist/registro-clientes/index.html');
-    res.sendFile(fullPath);
+    //const fullPath = path.join( '../../dist/registro-clientes/index.html');
+    res.sendFile( '../../dist/registro-clientes/index.html');
 }
     
 );
