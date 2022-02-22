@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static('../../dist/registro-clientes'));
 
 app.get('/*', (req, res) =>{
-    const fullPath = path.join(__dirname + '/dist/registro-clientes/index.html');
+    const fullPath = path.join( '/dist/registro-clientes/index.html');
     res.sendFile(fullPath);
 }
     
