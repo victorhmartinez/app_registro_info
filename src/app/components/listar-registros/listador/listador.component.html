@@ -4,9 +4,12 @@
       <div *ngFor="let registro of listRegistros" class="col mb-2">
         
         <div class="card ">
+          <div class="card-header">
+            <h5 class="card-title text-center">{{registro._id}}</h5>
+          </div>
           <div class="card-body text-center ">
-      
-           <h5 class="card-title text-center">{{registro._id}}</h5>
+           
+          
            <p> <strong>Nombres: </strong> {{registro.nombre}} {{registro.apellido}}</p>
            <p> <strong>Ubicación: </strong>{{registro.ubicacion}}</p>
          <ng-container *ngFor=" let regis of registro.registros; last as last;">

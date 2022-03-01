@@ -47,6 +47,7 @@ export class CrearRegistroComponent implements OnInit {
       ubicacion:this.registroForm.value.ubicacion,
       registros:this.registros
     }
+    this.registros=[];
     console.log("Objeto",REGISTRO);
     if(this.isEditar){
       this._productoService.editResgister(REGISTRO).subscribe(data=>{
