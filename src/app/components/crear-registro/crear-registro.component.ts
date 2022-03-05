@@ -48,15 +48,15 @@ export class CrearRegistroComponent implements OnInit {
       registros:this.registros
     }
     this.registros=[];
-    console.log("Objeto",REGISTRO);
+
     if(this.isEditar){
       this._productoService.editResgister(REGISTRO).subscribe(data=>{
-        console.log("Actualizado")
+
         this.registroForm.reset();
       })
     }else{
       this._productoService.saveRegistro(REGISTRO).subscribe(data=>{
-        console.log("Hecho esta")
+       
         this.registroForm.reset();
       });
     }
@@ -81,7 +81,7 @@ export class CrearRegistroComponent implements OnInit {
     this._productoService.getData(this._id).subscribe(data=>{ 
     if(data.length>0){
 
-      console.log("Hay data");
+     
       this.registroForm.setValue({
         ubicacion:data[0].ubicacion,
         nombres:data[0].nombre,

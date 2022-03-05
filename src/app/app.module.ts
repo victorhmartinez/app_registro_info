@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { BuscadorComponent } from './components/listar-registros/buscador/buscador.component';
 import { ListadorComponent } from './components/listar-registros/listador/listador.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistroUsuarioComponent } from './components/registro-usuario/registro-usuario.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { ListadorComponent } from './components/listar-registros/listador/listad
     HomeComponent,
     BuscadorComponent,
     ListadorComponent,
+    LoginComponent,
+    RegistroUsuarioComponent,
   
   ],
   imports: [

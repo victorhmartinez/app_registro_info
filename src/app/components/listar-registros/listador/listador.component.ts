@@ -15,7 +15,7 @@ export class ListadorComponent implements OnInit {
     constructor(private _registroService:RegistroService) { 
       this.suscription=this._registroService.getTerminoBusqueda().subscribe(data=>{
         this.termino=data;
-        console.log(data)
+       
         this.obtnerLugares()
       })
     }
@@ -26,7 +26,7 @@ export class ListadorComponent implements OnInit {
   obtnerLugares(){
     this._registroService.getRegisterPlaces(this.termino).subscribe(data=>{
       this.listRegistros=data;
-      console.log(this.listRegistros)
+     
     })
   }
 
